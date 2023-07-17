@@ -1,8 +1,18 @@
-import { useState } from 'react'
+import Header from './components/Header'
+import TranferCard from './components/TransferCard'
 
 function App() {
-  return(
-    <h1>Ola mundo!</h1>
+  return (
+    <>
+      <Header />
+      <main>
+        <section id="tranferencias">
+          <div className='supera-container'>
+            <TranferCard />
+          </div>
+        </section>
+      </main>
+    </>
   )
 }
 
