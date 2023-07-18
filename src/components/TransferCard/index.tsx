@@ -13,12 +13,18 @@ function TranferCard() {
   //coloca a data minima e maxima nos inputs.
   const [minDate, setMinDate] = useState(min);
   const [maxDate, setMaxDate] = useState(max);
-
+  
   const [transfers, setTransfers] = useState<Transfer[]>([]);
 
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/transferencias`)
+
+    const dmin = minDate.toISOString().slice(0, 10)
+    const dmax = maxDate.toISOString().slice(0, 10)
+    console.log(dmin)
+    console.log(dmax)
+
+    axios.get(`${BASE_URL}/transferencias?minDate=${dmin}&maxDate=${dmax}`)
       .then(response => {
         setTransfers(response.data.content);
       })
