@@ -3,9 +3,31 @@
   border-radius: 10px;
   padding: 30px 10px;
 }
+.supera-operator {
+  display: flex;
+  justify-content: space-between;
+}
+.supera-card-operator {
+  background-color: #283142;
+  border-radius: 10px;
+  display: flex;
+  border-radius: 5px;
+  width:37%;
+  color: #9AAABE;
+  padding-bottom: 10px;
+  justify-items: center;
+  justify-content: space-between;
+}
 
-.supera-transferencia-title {
+.supera-transferencia-title-operator {
   color: #676FFF;
+  margin-right: 14px;
+  font-size: 20px;
+  justify-items: center;
+  padding-top: 10px;
+}
+.supera-transferencia-title {
+  color: #b26e10;
   font-size: 24px;
   margin-bottom: 20px;
 }
@@ -62,6 +84,26 @@
 .supera-red-btn-container {
   display: flex;
   justify-content: center;
+}
+
+.button {
+  background-Color: #1B2531;
+  flex-Direction: 'row';
+  border-Radius: 10px;
+  margin-Top: 0px;
+  margin-bottom: 90px;
+  margin-Left: 10px;
+  margin-Right: 10px;
+  align-Items: 'center';
+  justify-Content: 'center'
+}
+.buttonText {
+  padding-Top: 10px;
+  padding-Bottom: 10px;
+  padding-Left: 20px;
+  padding-Right: 20px;
+  font-Size: 18px;
+  color: #FFF;
 }
 
 .show576 {

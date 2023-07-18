@@ -4,15 +4,24 @@ function TranferCard() {
   return (
     <div className="supera-card">
       <h2 className="supera-transferencia-title">Tranferencias</h2>
-      <div>
-        <div className="supera-form-control-container">
-          <input className="supera-form-control" type="text" placeholder='Data inicio'/>
+      <h2 className="supera-transferencia-title-operator">Filtro</h2>
+      <div className="supera-operator">
+        <div>
+          <div className="supera-form-control-container">
+            <input className="supera-form-control" type="text" placeholder='Data inicio' />
+          </div>
+          <div className="supera-form-control-container">
+            <input className="supera-form-control" type="text" placeholder='Data fim' />
+          </div>
         </div>
-        <div className="supera-form-control-container">
-          <input className="supera-form-control" type="text" placeholder='Data fim'/>
+        <div className="supera-card-operator">
+          <h2 className="supera-transferencia-title-operator">Operador</h2>
+          <input className="supera-form-control" type="text" placeholder='Operador' />
         </div>
+        <button className="button">
+          <h2 className="buttonText">Pesquisar</h2>
+      </button>
       </div>
-
       <div>
         <table className="supera-transferencia-table">
           <thead>

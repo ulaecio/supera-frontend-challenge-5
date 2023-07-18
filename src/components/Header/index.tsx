@@ -3,7 +3,7 @@ function Header() {
   return(
     <header>
         <div className="supera-logo-container">
-            <img src="https://lh3.googleusercontent.com/sB4btmJ_SrZiDaPcJejp_z19ZKHaeosZgGevNSCmirinYia8fxdmaEp01VnxDIMuZl8SRGOiedLWKPBlWLHtPFhOhymrGTnylX7skh4JjKYPYZ-WoMW2Sv5MrMrdCDaGbA=w965" alt="supera" />
+            <img src="https://www.supera.com.br/wp-content/uploads/2020/11/nova-logo-supera-branca.svg" alt="supera" />
             <h1>Supera seletivo Java / React</h1>
             <p>
               Desenvolvido por
