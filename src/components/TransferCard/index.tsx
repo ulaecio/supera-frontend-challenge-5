@@ -1,15 +1,23 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './styles.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function TranferCard() {
-//pega a data atual e diminue 365 dias
+  //pega a data atual e diminue 365 dias
   const min = new Date(new Date().setDate(new Date().getDate() - 365));
   const max = new Date();
-//coloca a data minima e maxima nos inputs.
+  //coloca a data minima e maxima nos inputs.
   const [minDate, setMinDate] = useState(min);
   const [maxDate, setMaxDate] = useState(max);
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/transferencias")
+      .then(response => {
+        console.log(response.data);
+      })
+  }, [])
 
   return (
     <div className="supera-card">
