@@ -8,21 +8,18 @@ import { Transfer } from "../../models/transfer";
 
 function TranferCard() {
   //pega a data atual e diminue 365 dias
-  const min = new Date(new Date().setDate(new Date().getDate() - 365));
+  const min = new Date(new Date().setDate(new Date().getDate() - 3000));
   const max = new Date();
   //coloca a data minima e maxima nos inputs.
   const [minDate, setMinDate] = useState(min);
   const [maxDate, setMaxDate] = useState(max);
-  
-  const [transfers, setTransfers] = useState<Transfer[]>([]);
 
+  const [transfers, setTransfers] = useState<Transfer[]>([]);
 
   useEffect(() => {
 
     const dmin = minDate.toISOString().slice(0, 10)
     const dmax = maxDate.toISOString().slice(0, 10)
-    console.log(dmin)
-    console.log(dmax)
 
     axios.get(`${BASE_URL}/transferencias?minDate=${dmin}&maxDate=${dmax}`)
       .then(response => {
@@ -66,11 +63,12 @@ function TranferCard() {
         <table className="supera-transferencia-table">
           <thead>
             <tr>
-              <th className="show992">Conta</th>
+              <th className="show992">ID</th>
               <th className="show576">Data</th>
               <th>Valor</th>
               <th className="show992">Tipo</th>
               <th className="show992">Operador da trans.</th>
+              <th className="show992">Conta</th>
             </tr>
           </thead>
           <tbody>
@@ -79,9 +77,10 @@ function TranferCard() {
                 <tr key={transfer.id}>
                   <td className="show992">{transfer.id}</td>
                   <td className="show576">{transfer.dataTransferencia}</td>
-                  <td>{transfer.valor}</td>
+                  <td>R$ {transfer.valor}</td>
                   <td className="show992">{transfer.tipo}</td>
                   <td>{transfer.nomeOperadorTransacao}</td>
+                  <td>{transfer.conta.nomeResponsavel}</td>
                 </tr>
               )
             })
