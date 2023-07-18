@@ -3,6 +3,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import './styles.css';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../../utils/request";
+import { Transfer } from "../../models/transfer";
 
 function TranferCard() {
   //pega a data atual e diminue 365 dias
@@ -12,12 +14,15 @@ function TranferCard() {
   const [minDate, setMinDate] = useState(min);
   const [maxDate, setMaxDate] = useState(max);
 
+  const [transfers, setTransfers] = useState<Transfer[]>([]);
+
+
   useEffect(() => {
-    axios.get("http://localhost:8080/transferencias")
+    axios.get(`${BASE_URL}/transferencias`)
       .then(response => {
-        console.log(response.data);
+        setTransfers(response.data.content);
       })
-  }, [])
+  }, [minDate, maxDate]);
 
   return (
     <div className="supera-card">
@@ -59,35 +64,22 @@ function TranferCard() {
               <th className="show576">Data</th>
               <th>Valor</th>
               <th className="show992">Tipo</th>
-              <th className="show992">Nome do operador</th>
+              <th className="show992">Operador da trans.</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="show992">#341</td>
-              <td className="show576">08/07/2022</td>
-              <td>R$ 55300.00</td>
-              <td className="show992">Saida</td>
-              <td>João</td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td className="show992">#341</td>
-              <td className="show576">08/07/2022</td>
-              <td>R$ 55300.00</td>
-              <td className="show992">Saida</td>
-              <td>João</td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td className="show992">#341</td>
-              <td className="show576">08/07/2022</td>
-              <td>R$ 55300.00</td>
-              <td className="show992">Entrada</td>
-              <td>João</td>
-            </tr>
+            {transfers.map(transfer => {
+              return (
+                <tr key={transfer.id}>
+                  <td className="show992">{transfer.id}</td>
+                  <td className="show576">{transfer.dataTransferencia}</td>
+                  <td>{transfer.valor}</td>
+                  <td className="show992">{transfer.tipo}</td>
+                  <td>{transfer.nomeOperadorTransacao}</td>
+                </tr>
+              )
+            })
+            }
           </tbody>
         </table>
       </div>
