@@ -1,5 +1,5 @@
-import Header from './components/Header'
-import TranferCard from './components/TransferCard'
+import Header from './components/Header';
+import TranferCard from './components/TransferCard';
 
 function App() {
   return (
@@ -16,4 +16,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

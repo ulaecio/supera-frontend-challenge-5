@@ -1,8 +1,16 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import './styles.css'
+import './styles.css';
+import { useState } from "react";
 
 function TranferCard() {
+//pega a data atual e diminue 365 dias
+  const min = new Date(new Date().setDate(new Date().getDate() - 365));
+  const max = new Date();
+//coloca a data minima e maxima nos inputs.
+  const [minDate, setMinDate] = useState(min);
+  const [maxDate, setMaxDate] = useState(max);
+
   return (
     <div className="supera-card">
       <h2 className="supera-transferencia-title">Tranferencias</h2>
@@ -10,17 +18,18 @@ function TranferCard() {
       <div className="supera-operator">
         <div>
           <div className="supera-form-control-container">
+            {/* mostra o calendario de data na tela */}
             <DatePicker
-              selected={new Date()}
-              onChange={(date: Date) => { }}
+              selected={minDate}
+              onChange={(date: Date) => setMinDate(date)} //Coloca no input a data inicio setada pelo usuário
               className="supera-form-control"
               dateFormat="dd/MM/yyyy"
             />
           </div>
           <div className="supera-form-control-container">
             <DatePicker
-              selected={new Date()}
-              onChange={(date: Date) => { }}
+              selected={maxDate}
+              onChange={(date: Date) => setMaxDate(date)} //Coloca no input a data fim setada pelo usuário
               className="supera-form-control"
               dateFormat="dd/MM/yyyy"
             />
@@ -78,4 +87,4 @@ function TranferCard() {
   )
 }
 
-export default TranferCard
+export default TranferCard;
