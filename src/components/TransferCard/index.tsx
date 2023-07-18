@@ -1,3 +1,5 @@
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import './styles.css'
 
 function TranferCard() {
@@ -8,10 +10,20 @@ function TranferCard() {
       <div className="supera-operator">
         <div>
           <div className="supera-form-control-container">
-            <input className="supera-form-control" type="text" placeholder='Data inicio' />
+            <DatePicker
+              selected={new Date()}
+              onChange={(date: Date) => { }}
+              className="supera-form-control"
+              dateFormat="dd/MM/yyyy"
+            />
           </div>
           <div className="supera-form-control-container">
-            <input className="supera-form-control" type="text" placeholder='Data fim' />
+            <DatePicker
+              selected={new Date()}
+              onChange={(date: Date) => { }}
+              className="supera-form-control"
+              dateFormat="dd/MM/yyyy"
+            />
           </div>
         </div>
         <div className="supera-card-operator">
@@ -20,7 +32,7 @@ function TranferCard() {
         </div>
         <button className="button">
           <h2 className="buttonText">Pesquisar</h2>
-      </button>
+        </button>
       </div>
       <div>
         <table className="supera-transferencia-table">
